@@ -8,11 +8,17 @@
         </b-card>
     </b-collapse>
 
-    <img src="http://marbleheadconservancy.org/wordtest/wp-content/uploads/2017/10/googleMapsScreen1-576x1024.png" alt="Italian Trulli">
+    <Gmap />
   </div>
-    
-    
-
-    
   </div>
 </template>
+
+<script>
+import Gmap from "@/components/Gmap.vue";
+
+export default {
+  components: {
+    Gmap,
+  }
+}
+</script>
