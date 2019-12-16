@@ -7,8 +7,9 @@
           <p class="card-text">| Timer 0:00 | Miles Long 0 | Average Speed | Target Speed |</p>
         </b-card>
     </b-collapse>
-
-    <Gmap />
+    <keep-alive>
+      <Gmap />
+    </keep-alive>
   </div>
   </div>
 </template>

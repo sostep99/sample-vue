@@ -1,16 +1,38 @@
 <template>
   <div class="LeaderBoard">
    <div>
-  <b-card title="Card title" sub-title="Card subtitle">
+  <b-card title="Route: Gay St">
     <b-card-text>
-      Some quick example text to build on the <em>card title</em> and make up the bulk of the card's
-      content.
+     Record: 0:00 |
+     average speed: 0:00
     </b-card-text>
 
-    <b-card-text>A second paragraph of text in the card.</b-card-text>
+    <b-card-text>
+     Your best time: 0:00 |
+     Your average speed: 0:00
+     </b-card-text>
+  </b-card>
+   <b-card title="Route: Around HHS">
+    <b-card-text>
+     Record: 0:00 |
+     average speed: 0:00
+    </b-card-text>
 
-    <a href="#" class="card-link">Card link</a>
-    <b-link href="#" class="card-link">Another link</b-link>
+    <b-card-text>
+     Your best time: 0:00 |
+     Your average speed: 0:00
+     </b-card-text>
+  </b-card>
+   <b-card title="Route: Around the HHS Track">
+    <b-card-text>
+     Record: 0:00
+     average speed: 0:00
+    </b-card-text>
+
+    <b-card-text>
+     Your best time: 0:00
+     Your average speed: 0:00
+     </b-card-text>
   </b-card>
 </div>
    
