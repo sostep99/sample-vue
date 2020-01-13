@@ -1,6 +1,6 @@
 <template>
   <div class="Stats">
-   <b-card title="Route: Gay St">
+   <b-card title="Stats">
     <b-card-text>
      Records held: 0 |
      Average speed per mile: 0 |

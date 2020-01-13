@@ -6,6 +6,7 @@
 
 <script>
 export default {
+    // creates the map
     name: 'google-map',
     props: ['name'],
     data: function () {
@@ -14,66 +15,58 @@ export default {
             position: null,
             map: null,
             marker: null
+            
         }
     },
     methods: {
-        makeMap: function (coords) {
-             //let myLatLng = {lat: -25.363, lng: 131.044};
-             let myLatLng = coords;
 
-            this.map = new google.maps.Map(document.getElementById(this.mapName), {
-                zoom: 4,
-                center: myLatLng
-            });
-
-            this.marker = new google.maps.Marker({
-                position: myLatLng,
-                map: this.map,
-                title: 'Hello World!'
-            });
-        },
         print: function (message) {
             console.log(message);
-        }
-    },
-    activated: function () {
-        // const element = document.getElementById(this.mapName)
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                // let myLatLng = {
-                //     let: position.coords.latitude,
-                //     lg: position.coords.longitude
-                // }
-                //this.makeMap(myLatLng);
-                this.position = position;
-                // const options = {
-                //     zoom: 14,
-                //     center: new google.maps.LatLng(position.coords.latitude,position.coords.longitude)
-                // } 
-                // this.map = new google.maps.Map(element, options);
-                // this.marker = new google.maps.Marker({
-                //     position: options.center,
-                //     title: 'Hello World!'
-                // });
-                // this.marker.setMap(this.map);
-            });
-        }
+        },
 
+        // Function for calculating best route
+        calcRoute: function (origin, destination) {
+            this.createMap();
+            var directionsService = new google.maps.DirectionsService();
+            var directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(this.map);
+            var request = {
+                origin: new google.maps.LatLng(origin.lat, origin.long),
+                destination: new google.maps.LatLng(destination.lat, destination.long),
+                travelMode: 'DRIVING'
+            };
+            directionsService.route(request, function(result, status) {
+                if (status == 'OK') {
+                    directionsRenderer.setDirections(result);
+                } else {
+                    console.log("Route failed!")
+                }
+            });
+        },
+        createMap: function () {
+         // Finds your location stores in this.position
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(function (position) {
+        //         this.position = position;
+        //     });
+        // }
+
+
+        // this.position not working so set place holder coords instead stored im mylatlng
         let myLatLng = {lat: 38.435982, lng: -78.879997};
 
-        this.map = new google.maps.Map(document.getElementById(this.mapName), {
+        // centers map at mylatlg
+         this.map = new google.maps.Map(document.getElementById(this.mapName), {
             zoom: 14,
             center: myLatLng
         });
-
-        this.marker = new google.maps.Marker({
-            position: myLatLng,
-            
-            map: this.map,
-            title: 'Hello World!'
-        });
-        
-    }
+        }
+    },
+    activated: function () {
+        this.createMap();
+    },
+    
+    
     
 
 };
