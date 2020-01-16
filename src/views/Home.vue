@@ -1,14 +1,15 @@
 <template>
   <div class="home">
   <div>
-      <!-- This button contains a dropdown with place holder stats for the currunt route your doing. -->
-
+      <!-- Information put in these boxes get set as the origin and destination variables. -->
+      
     <b-form-input v-model="origin.lat" placeholder="Enter the origin latitude"></b-form-input>
     <b-form-input v-model="origin.long" placeholder="Enter the origin longitude"></b-form-input>
     <b-form-input v-model="destination.lat" placeholder="Enter the destination latitude"></b-form-input>
     <b-form-input v-model="destination.long" placeholder="Enter the destination longitude"></b-form-input>
 
-
+ <!-- This button contains a dropdown with place holder stats for the currunt route your doing. -->
+ <!-- This button also starts a route when origin and destination have variables assigned to them -->
     <b-button v-b-toggle.collapse-1 variant="outline-primary" v-on:click="route()">Create Route</b-button>
       <b-collapse id="collapse-1" class="mt-2">
         <b-card bg-variant="light" header="Information" class="text-center">
@@ -28,10 +29,12 @@
 // Brings the Map to this page
 import Gmap from "@/components/Gmap.vue";
 
+// This code exports Your origin and destination variables to gmap
 export default {
   components: {
     Gmap,
   },
+  // If you dont put anything in the boxes this is the route information that gets used
   data: function () {
     return {
       message: "hello",
@@ -45,6 +48,8 @@ export default {
       }
     }
   },
+  
+  // This formats the origin and destination user input in a way that lets the code in gmap read it
   methods: {
     route: function () {
       console.log(this.message);
