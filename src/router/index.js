@@ -4,7 +4,7 @@ import Home from "../views/Home.vue";
 import Stats from "../views/Stats.vue";
 import LeaderBoard from "../views/LeaderBoard.vue";
 Vue.use(VueRouter);
-// adds all the vues to the same page
+// contains all vues
 const routes = [
   {
     path: "/",
