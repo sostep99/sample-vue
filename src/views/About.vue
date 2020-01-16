@@ -1,4 +1,5 @@
 <template>
+//this is not used
   <div class="About">
     <h1>This is an about page</h1>
   </div>
