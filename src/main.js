@@ -1,3 +1,4 @@
+ <!-- Imports all the preset stuff like the vues itself -->
 import Vue from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
