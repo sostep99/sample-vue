@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+      <!-- This part lets you swich between the pages -->
       <router-link to="/">Home</router-link> |
       <router-link to="/leaderboard">LeaderBoard</router-link> |
       <router-link to="/stats">Stats</router-link>
@@ -9,7 +10,9 @@
   </div>
 </template>
 
+     
 <style>
+ <!-- changes how the app looks -->
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
