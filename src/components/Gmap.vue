@@ -24,17 +24,19 @@ export default {
             console.log(message);
         },
 
-        // Function for calculating best route
+        // Function for calculating best route: origin is starting point, destination is ending point
         calcRoute: function (origin, destination) {
             this.createMap();
             var directionsService = new google.maps.DirectionsService();
             var directionsRenderer = new google.maps.DirectionsRenderer();
             directionsRenderer.setMap(this.map);
+            // Pulls variable from home and sets them as origin and destination
             var request = {
                 origin: new google.maps.LatLng(origin.lat, origin.long),
                 destination: new google.maps.LatLng(destination.lat, destination.long),
                 travelMode: 'DRIVING'
             };
+            // Helps with de-bugging
             directionsService.route(request, function(result, status) {
                 if (status == 'OK') {
                     directionsRenderer.setDirections(result);
@@ -44,7 +46,7 @@ export default {
             });
         },
         createMap: function () {
-         // Finds your location stores in this.position
+         // Finds your location stores in this.position (isnt working)
         // if (navigator.geolocation) {
         //     navigator.geolocation.getCurrentPosition(function (position) {
         //         this.position = position;
